@@ -5,7 +5,7 @@ A Chrome extension for HTML and MHTML previews inside Google Drive. It runs the 
 ## Install from a fresh clone
 
 ```sh
-git clone <repository-url> drive-inline-preview
+git clone https://github.com/gvteja/drive-inline-preview.git
 cd drive-inline-preview
 ```
 
