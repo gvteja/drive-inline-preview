@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Drive Inline Preview</title><link rel="stylesheet" href="viewer.css"></head>
+<body>
+<header>
+  <div class="brand">&lt;/&gt;</div><div class="heading"><strong id="filename">HTML + MHTML preview</strong><span id="subtitle">Isolated JavaScript · Remote CSS, fonts and images enabled</span></div>
+  <button id="close" title="Close preview (Escape)" aria-label="Close preview">×</button>
+</header>
+<nav aria-label="Preview controls">
+  <div class="tabs"><button id="rendered" class="selected" aria-pressed="true">Preview</button><button id="source" aria-pressed="false">Source</button></div>
+  <label class="zoom">Zoom <select id="zoom"><option value="0.75">75%</option><option value="1" selected>100%</option><option value="1.25">125%</option><option value="1.5">150%</option></select></label>
+  <label class="remote-scripts" title="Allow HTTPS scripts for this preview only. Changing this setting restarts the document. It resets when you open another file."><input id="remote-scripts" type="checkbox" disabled>Allow remote scripts</label><span id="script-count" role="status" aria-live="polite" title="Unique script references detected as blocked in this render; not a full network audit.">0 blocked</span><button id="script-details-toggle" aria-expanded="false" aria-controls="script-details" disabled>Details</button>
+  <button id="copy-link" disabled title="Copy the current message link after using a prompt marker or message anchor">Copy message link</button><span class="spacer"></span><label class="auto" title="On: opening HTML/MHTML in Drive uses this viewer. Off: use normal Drive preview; the extension toolbar icon still works. This is not auto-refresh."><input id="auto" type="checkbox" checked>Open HTML/MHTML automatically</label>
+  <button id="reload" disabled>Reload file</button><button id="native" disabled>Drive preview</button><button id="local">Open local file</button>
+  <input id="file" type="file" accept=".html,.htm,.mhtml,.mht,text/html,multipart/related,application/x-mimearchive" hidden>
+</nav>
+<section id="notice" role="status" hidden></section>
+<section id="script-details" hidden><strong>Script loading</strong><p id="script-summary"></p><ul id="script-list"></ul></section>
+<section id="navigation-status" role="status" hidden></section><input id="link-text" readonly aria-label="Message link to copy" hidden><main><div id="empty"><div class="mark">&lt;/&gt;</div><h1 id="message-title">Preview HTML and MHTML</h1><p id="message">Open an HTML or MHTML file in Google Drive, or choose a local file above. After installing the extension, reload your Drive tab.</p><p id="error" role="alert" hidden></p></div><iframe id="document" title="Isolated interactive document preview" sandbox="allow-scripts" allow="camera 'none'; microphone 'none'; geolocation 'none'; clipboard-read 'none'; clipboard-write 'none'; payment 'none'; fullscreen 'none'" referrerpolicy="no-referrer" hidden></iframe><pre id="source-code" tabindex="0" hidden></pre></main>
+<footer><span id="detail">No conversion service · Remote assets can make network requests</span><span>32 MiB file limit</span></footer>
+<script type="module" src="viewer.js"></script>
+</body></html>

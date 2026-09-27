@@ -1,0 +1,2 @@
+# Keep MIME archive bytes and their CRLF line endings intact.
+*.mhtml -text whitespace=cr-at-eol

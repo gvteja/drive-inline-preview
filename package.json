@@ -1,0 +1,11 @@
+{
+  "name": "drive-inline-preview",
+  "version": "0.3.2",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "test:extension": "node tests/extension_smoke.mjs"
+  }
+}

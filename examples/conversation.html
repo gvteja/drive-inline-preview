@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Original-file navigation example</title><style>
+body{margin:28px auto 140px;max-width:760px;font:16px/1.6 system-ui,sans-serif;padding:0 20px;background:#f8f9fb;color:#202124}.conversation-item{padding:24px;margin:24px 0;min-height:280px;border-radius:16px;background:#e9e5ff;scroll-margin-top:24px}nav{position:fixed;right:18px;top:35%;background:white;border:1px solid #ddd;border-radius:14px;padding:14px;display:flex;gap:8px;flex-direction:column}button{padding:7px}h1{font-size:25px}@media(max-width:1150px){nav{top:auto;bottom:15px;left:15px;right:15px;flex-direction:row;justify-content:center;flex-wrap:wrap}}
+</style></head><body><h1>Original-file navigation example</h1><p id="status">Waiting for the file's embedded script.</p><p>This file contains its own prompt bar. The preview extension does not create that bar.</p><div class="conversation">
+<section id="msg-first" class="conversation-item" data-ce-prompt><h2>First prompt</h2><p><a href="#msg-e9858550-be8c-4426-89d2-6ff73f83e813">Jump to the second prompt</a></p></section>
+<section id="msg-e9858550-be8c-4426-89d2-6ff73f83e813" class="conversation-item" data-ce-prompt><h2>Second prompt</h2><p>This uses the message ID from the reported fragment issue.</p></section>
+<section id="msg-third" class="conversation-item" data-ce-prompt><h2>Third prompt</h2><p>Use the original bar or Option/Alt + Up/Down. Use Copy message link in the viewer to copy a Drive link.</p></section></div>
+<script>
+(()=>{
+document.getElementById('status').textContent='The file’s embedded script is running.';
+const prompts=[...document.querySelectorAll('.conversation > .conversation-item[data-ce-prompt]')];
+if(document.getElementById('ce-prompt-navigation'))return;
+const nav=document.createElement('nav');nav.id='ce-prompt-navigation';nav.setAttribute('aria-label','Original-file prompt navigation');
+const title=document.createElement('strong');title.textContent='Prompts';nav.append(title);
+let active=0;
+function go(index){active=Math.max(0,Math.min(prompts.length-1,index));const item=prompts[active];item.scrollIntoView();try{history.replaceState(null,'','#'+item.id)}catch{}}
+prompts.forEach((item,index)=>{const a=document.createElement('a');a.href='#'+item.id;a.textContent=String(index+1);a.addEventListener('click',event=>{event.preventDefault();go(index)});nav.append(a)});
+for(const [label,delta] of [['Previous',-1],['Next',1]]){const b=document.createElement('button');b.textContent=label;b.onclick=()=>go(active+delta);nav.append(b)}
+document.addEventListener('keydown',event=>{if(event.altKey&&!event.metaKey&&!event.ctrlKey&&['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();go(active+(event.key==='ArrowUp'?-1:1))}});
+document.body.append(nav);
+})();
+</script></body></html>

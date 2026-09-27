@@ -1,0 +1,46 @@
+Subject: Inline MHTML preview test
+MIME-Version: 1.0
+Snapshot-Content-Location: https://example.invalid/saved/index.html
+Content-Type: multipart/related; start="<root@example>";
+ boundary="===============5119761990370523434=="
+
+--===============5119761990370523434==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-ID: <root@example>
+Content-Location: https://example.invalid/saved/index.html
+
+<!doctype html><html><head><meta charset=3D"utf-8"><link rel=3D"stylesheet" h=
+ref=3D"assets/site.css"></head><body><h1>MHTML preview works</h1><p id=3D"uni=
+code">Unicode: caf=C3=A9 =C2=B7 =E0=A4=A8=E0=A4=AE=E0=A4=B8=E0=A5=8D=E0=A4=A4=
+=E0=A5=87 =C2=B7 =E6=9D=B1=E4=BA=AC</p><div class=3D"card">This style comes f=
+rom the archive, not the internet.</div><img id=3D"archived-image" src=3D"cid=
+:logo@example" width=3D"180" height=3D"80"><p><a href=3D"#end">Jump to the en=
+d</a></p><div style=3D"height:700px"></div><h2 id=3D"end">Archive anchor targ=
+et</h2></body></html>
+
+--===============5119761990370523434==
+Content-Type: text/css; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Location: https://example.invalid/saved/assets/site.css
+
+body{font:17px/1.7 system-ui;margin:50px auto;max-width:820px;color:#234}h1{f=
+ont-size:38px}.card{padding:25px;border-radius:12px;background:#e5f2ef;margin=
+:25px 0}
+
+--===============5119761990370523434==
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-ID: <logo@example>
+Content-Location: https://example.invalid/saved/logo.svg
+
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdo
+dD0iODAiPjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iODAiIHJ4PSIxMiIgZmlsbD0iIzI2NzU2
+OCIvPjx0ZXh0IHg9IjkwIiB5PSI0OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9
+InNhbnMtc2VyaWYiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjIzIj5NSFRNTDwvdGV4dD48L3N2
+Zz4=
+
+--===============5119761990370523434==--

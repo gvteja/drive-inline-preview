@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Drive Inline HTML + MHTML Preview",
+  "version": "0.3.2",
+  "description": "Preview HTML/MHTML in Drive. Isolated embedded JavaScript; remote CSS, images and fonts; opt-in remote scripts.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://drive.google.com/*",
+    "https://drive.usercontent.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Preview selected HTML or MHTML file"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://drive.google.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "viewer.html",
+        "sandbox.html"
+      ],
+      "matches": [
+        "https://drive.google.com/*"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src data:; connect-src https://drive.google.com https://drive.usercontent.google.com; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'",
+    "sandbox": "sandbox allow-scripts; default-src 'none'; script-src 'self' 'unsafe-inline' data: blob: https:; style-src 'unsafe-inline' data: https:; img-src data: blob: https:; font-src data: blob: https:; media-src data: blob:; connect-src 'none'; frame-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+  },
+  "sandbox": {
+    "pages": [
+      "sandbox.html"
+    ]
+  }
+}
